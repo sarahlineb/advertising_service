@@ -39,10 +39,12 @@ public class TargetingGroup {
      * @param clickThroughRate The probability a customer will click on this advertisement.
      * @param targetingPredicates All of the targeting predicates that must be TRUE to show this advertisement.
      */
+
+    //Added Runnable here for MT2
     public TargetingGroup(String targetingGroupId,
-                          String contentId,
-                          double clickThroughRate,
-                          List<TargetingPredicate> targetingPredicates) {
+                                                   String contentId,
+                                                   double clickThroughRate,
+                                                   List<TargetingPredicate> targetingPredicates) {
 
         this.targetingGroupId = targetingGroupId;
         this.contentId = contentId;

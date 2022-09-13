@@ -3,7 +3,9 @@ package com.amazon.ata.advertising.service.model;
 import java.util.Map;
 import java.util.Objects;
 
-public class TargetingPredicate {
+
+//Implemented Runnable here for MT2
+public class TargetingPredicate implements Runnable{
     private TargetingPredicateType targetingPredicateType;
     private boolean negate;
     private Map<String, String> attributes;
@@ -63,6 +65,11 @@ public class TargetingPredicate {
     }
 
     public static Builder builder() {return new Builder();}
+
+    @Override
+    public void run() {
+
+    }
 
     public static final class Builder {
         private TargetingPredicateType targetingPredicateType;
