@@ -41,6 +41,7 @@ public class TargetingEvaluator {
     public TargetingPredicateResult evaluate(TargetingGroup targetingGroup) {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
+
         try{
             return executorService.submit(() -> (targetingGroup.getTargetingPredicates().parallelStream())
                     .allMatch(targetingPredicate -> targetingPredicate.evaluate(requestContext).isTrue())
@@ -57,6 +58,24 @@ public class TargetingEvaluator {
     }
 }
 
+
+//
+//        long count = targetingGroup.getTargetingPredicates().stream()
+//                .map(p -> executor.submit(() -> p.evaluate(requestContext)))
+//                .filter(p -> {
+//                    try {
+//                        return !p.get().isTrue();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    } catch (ExecutionException e) {
+//                        e.printStackTrace();
+//                    }
+//                    return false;
+//                })
+//                .count();
+//
+//        return count > 0 ? TargetingPredicateResult.FALSE :
+//                TargetingPredicateResult.TRUE;
 //
 //        List<TargetingPredicate> targetingPredicates = targetingGroup.getTargetingPredicates();
 //        Stream<TargetingPredicate> targetingPredicateStream = targetingPredicates.stream();
