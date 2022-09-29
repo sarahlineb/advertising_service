@@ -1,4 +1,4 @@
-#  Unit 7 Project: ATA Advertising Service
+# ATA Advertising Service
 
 ## Preliminaries: The More Things Change
 
